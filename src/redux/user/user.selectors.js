@@ -6,3 +6,5 @@ export const selectCurrentUser = createSelector(
   [selectUser],
   (user) => user.currentUser
 );
+
+//usage of reselector 
