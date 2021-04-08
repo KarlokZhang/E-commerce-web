@@ -8,12 +8,12 @@ const StripeCheckoutButton = ({ price }) => {
 
   const onToken = (token) => {
     console.log(token);
-    alert('Payment Successful');
+    alert('Payment Succesful!');
   };
 
   return (
     <StripeCheckout
-      label='Pay Now '
+      label='Pay Now'
       name='CRWN Clothing Ltd.'
       billingAddress
       shippingAddress
@@ -28,4 +28,3 @@ const StripeCheckoutButton = ({ price }) => {
 };
 
 export default StripeCheckoutButton;
-
