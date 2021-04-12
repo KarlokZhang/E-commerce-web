@@ -117,7 +117,7 @@ const SHOP_DATA = {
   },
   jackets: {
     id: 3,
-    title: 'Apple',
+    title: 'Jacket',
     routeName: 'jackets',
     items: [
       {
