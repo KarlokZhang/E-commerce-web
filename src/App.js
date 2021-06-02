@@ -31,7 +31,7 @@ class App extends Component {
       }
 
       setCurrentUser(userAuth);
-      addCollectionAndDocuments('collections', collectionArray);
+      addCollectionAndDocuments('collections', collectionArray.map(({title, items}) => ({ title, items})));
     });
   }
 
