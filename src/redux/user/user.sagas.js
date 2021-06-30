@@ -8,14 +8,14 @@ import {
   signOutSuccess,
   signOutFailure,
   signUpSuccess,
-  signUpFailure
+  signUpFailure,
 } from './user.actions';
 
 import {
   auth,
   googleProvider,
   createUserProfileDocument,
-  getCurrentUser
+  getCurrentUser,
 } from '../../firebase/firebase.utils';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
@@ -63,9 +63,9 @@ export function* isUserAuthenticated() {
 export function* signOut() {
   try {
     yield auth.signOut();
-    yield put(signOutSuccess())
-  } catch (error) { 
-    yield put(signOutFailure(error))
+    yield put(signOutSuccess());
+  } catch (error) {
+    yield put(signOutFailure(error));
   }
 }
 
@@ -95,7 +95,7 @@ export function* onEmailSignInStart() {
 }
 
 export function* onSignOutStart() {
-  yield takeLatest(UserActionTypes.SIGN_UP_START, signOut)
+  yield takeLatest(UserActionTypes.SIGN_UP_START, signOut);
 }
 
 export function* onSignUpStart() {
@@ -107,5 +107,12 @@ export function* onSignUpSuccess() {
 }
 
 export function* userSagas() {
-  yield all([call(onGoogleSignInStart), call(onEmailSignInStart)]);
+  yield all([
+    call(onGoogleSignInStart),
+    call(onEmailSignInStart),
+    call(onCheckUserSession),
+    call(onSignOutStart),
+    call(onSignUpStart),
+    call(onSignUpSuccess),
+  ]);
 }
